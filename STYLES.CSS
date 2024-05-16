@@ -1,0 +1,190 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+  }
+  
+  /* Header Styling */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  header form input[type="text"] {
+    padding: 8px;
+    width: 200px;
+  }
+  
+  header form button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  header form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Navigation Styling */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+  }
+  
+  nav ul li:hover > ul {
+    display: block;
+  }
+  
+  nav ul ul li {
+    display: block;
+  }
+  
+  /* Main Styling */
+  main {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  main section {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  main section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  main section ul {
+    list-style-type: none;
+  }
+  
+  main section ul li {
+    margin-bottom: 20px;
+  }
+  
+  main section img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  main section h3 {
+    font-size: 1.2rem;
+  }
+  
+  main section p {
+    margin-top: 10px;
+  }
+  
+  main section button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  main section button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  footer ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  footer address p {
+    margin-bottom: 10px;
+  }
+  
+  footer div {
+    margin-bottom: 20px;
+  }
+  
+  footer div h3 {
+    font-size: 1.2rem;
+  }
+  
+  footer div p {
+    margin-bottom: 10px;
+  }
+  
+  footer div form input[type="email"] {
+    padding: 8px;
+    width: 200px;
+  }
+  
+  footer div form button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  footer div form button:hover {
+    background-color: #45a049;
+  }
+  
+  footer p {
+    text-align: center;
+  }
+  
