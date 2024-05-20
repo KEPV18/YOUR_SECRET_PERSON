@@ -1,10 +1,9 @@
 <?php
-    include "init.php";?>
+include "init.php";
+include $lang . "en.php";
+include $tpl . "header.php";
+?>
+welcome to index
 <?php
-
-    include $lang ."en.php";?>
-<?php
-    include $tpl ."header.php"; ?>?>
-     welcome to index
-<?php
-    include $tpl ."footer.php"; ?>
+include $tpl . "footer.php";
+?>
