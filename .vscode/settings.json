@@ -1,3 +1,9 @@
 {
-    "github-actions.workflows.pinned.workflows": []
+    "github-actions.workflows.pinned.workflows": [],
+    "cursor.chat.alwaysSearchWeb": true,
+    "cursor.chat.smoothStreaming": true,
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Anysphere",
+    "workbench.preferredDarkColorTheme": "Visual Studio 2017 Dark - C++",
+    "workbench.iconTheme": "vs-seti"
 }

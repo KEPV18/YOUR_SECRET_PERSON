@@ -1,4 +1,6 @@
 <?php
+
+include "connect.php";
 // routes
 $tpl = "includes/template/";  // template directory
 $css = "layout/css/";  // css directory
