@@ -1,23 +1,11 @@
-<?php 
-
-
-
-    function lang($phrase){
-
+<?php
+function lang($phrase) {
     static $lang = array(
-        // dashpord phrases 
-        "categories" -> "sections",
-        "" -> "",
-        "" -> "",
-        "" -> "",
-        "" -> "",
-
-
+        // dashboard phrases
+        "categories" => "sections",
+        // يمكن إضافة المزيد من العبارات هنا
     );
 
-    return $lang [$phrase];
-    }
-
-
-    
+    return isset($lang[$phrase]) ? $lang[$phrase] : $phrase;
+}
 ?>

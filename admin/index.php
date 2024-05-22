@@ -1,28 +1,34 @@
 <?php
 session_start();
-$nonavpar = "";
+
+// إذا كان المستخدم مسجل الدخول بالفعل، انتقل إلى الصفحة الرئيسية
 if (isset($_SESSION["USERNAME"])) {
     header("Location: dashboard.php");
     exit();
 }
+
+$nonavpar = "";
+
+// تضمين ملفات التهيئة
 include "init.php";
-// Check if user is coming from HTTP POST request
+
+// التحقق مما إذا كان الطلب قادمًا عبر POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["user"];
     $password = $_POST["pass"];
     $hashedpass = sha1($password);
 
-    // Check if the user exists in the database
+    // التحقق من وجود المستخدم في قاعدة البيانات
     $stmt = $con->prepare("SELECT username, password FROM users WHERE username = ? AND password = ? AND Groupid = 1");
     $stmt->execute([$username, $hashedpass]);
 
-    // Fetch the result
+    // جلب النتيجة
     $row = $stmt->fetch();
     $count = $stmt->rowCount();
 
-    // If count > 0, this means the database contains a record about this username
+    // إذا كانت النتيجة تحتوي على سجل واحد على الأقل، سجل الدخول
     if ($count > 0) {
-        $_SESSION["USERNAME"] = $username;  // register session name
+        $_SESSION["USERNAME"] = $username;  // تسجيل اسم المستخدم في الجلسة
         echo "Welcome " . $username;
         header("refresh:3;url=dashboard.php");
         exit();
@@ -40,5 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 <?php
+// تضمين تذييل الصفحة
 include $tpl . "footer.php";
 ?>
