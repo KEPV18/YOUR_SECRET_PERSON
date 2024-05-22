@@ -1,13 +1,11 @@
 <?php
 session_start();
+$nonavpar = "";
 if (isset($_SESSION["USERNAME"])) {
     header("Location: dashboard.php");
     exit();
 }
 include "init.php";
-include $lang . "en.php";
-include $tpl . "header.php";
-
 // Check if user is coming from HTTP POST request
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["user"];

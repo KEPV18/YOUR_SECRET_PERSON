@@ -5,9 +5,12 @@
     function lang($phrase){
 
     static $lang = array(
-        "message" => "welcome" ,
-        "Admin" => "adminstature" ,
-
+        // dashpord phrases 
+        "" -> "",
+        "" -> "",
+        "" -> "",
+        "" -> "",
+        "" -> "",
 
 
     );

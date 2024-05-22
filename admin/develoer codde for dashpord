@@ -1,0 +1,15 @@
+<?php
+session_start();
+
+function redirectWithMessage($message, $url, $delay = 3) {
+    echo $message;
+    header("refresh:$delay;url=$url");
+    exit();
+}
+
+if (isset($_SESSION["USERNAME"])) {
+    redirectWithMessage("Welcome " . $_SESSION["USERNAME"], "dashboard.php");
+} else {
+    redirectWithMessage("You are not authorized to view this page.", "index.php");
+}
+?>
