@@ -6,7 +6,7 @@
 
     static $lang = array(
         // dashpord phrases 
-        "" -> "",
+        "categories" -> "sections",
         "" -> "",
         "" -> "",
         "" -> "",
