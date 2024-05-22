@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION["USERNAME"])) {
+    header("Location: dashboard.php");
+    exit();
+}
 include "init.php";
 include $lang . "en.php";
 include $tpl . "header.php";
@@ -19,7 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If count > 0, this means the database contains a record about this username
     if ($count > 0) {
+        $_SESSION["USERNAME"] = $username;  // register session name
         echo "Welcome " . $username;
+        header("refresh:3;url=dashboard.php");
+        exit();
     } else {
         echo "Invalid Username or Password";
     }
