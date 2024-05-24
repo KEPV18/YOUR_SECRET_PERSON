@@ -2,13 +2,13 @@
 function lang($phrase) {
     static $lang = array(
         // dashboard phrases
-        "categories" => "Categories",
-        "home" => "Home",
-        "link" => "Link",
-        "dropdown" => "Dropdown",
-        "edit_profile" => "Edit your Profile",
-        "settings" => "Settings",
-        "logout" => "Logout"
+        "categories" => "Sections",
+        "home" => "Main",
+        "link" => "URL",
+        "dropdown" => "Options",
+        "edit_profile" => "Update Profile",
+        "settings" => "Preferences",
+        "logout" => "Sign Out"
     );
 
     return isset($lang[$phrase]) ? $lang[$phrase] : $phrase;
