@@ -1,7 +1,10 @@
-        <div class="footer">
-        </div>
-        <script src="<?php echo $js; ?>jquery-3.7.1.min.js"></script>
-        <script src="<?php echo $js; ?>bootstrap.min.js"></script>
-        <script src="<?php echo $js; ?>backend.js"></script>
-    </body>
+<!-- الفوتر -->
+<div class="footer">
+</div>
+
+<!-- السكربتات -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="backend.js"></script>
+</body>
 </html>
