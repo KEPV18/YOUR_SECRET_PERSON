@@ -1,15 +1,15 @@
-$(function() {
-
+$(document).ready(function() {
     "use strict";
 
-    // Hide placeholder on form focus
-    $("[placeholder]").focus(function() {
-
+    function handleFocus() {
         $(this).attr("data-text", $(this).attr("placeholder"));
         $(this).attr("placeholder", "");
+    }
 
-    }).blur(function() { // لإعادة عرض النص عند فقدان التركيز
+    function handleBlur() {
         $(this).attr("placeholder", $(this).attr("data-text"));
-    });
+    }
 
+    // Hide placeholder on form focus
+    $("[placeholder]").focus(handleFocus).blur(handleBlur);
 });

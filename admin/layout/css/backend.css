@@ -1,33 +1,16 @@
-/* start main rulez */
-
 body {
-
     background-color: #f4f4f4;
 }
 
-
-
 /* end main rulez */
 
-
-
-
-
 /* start login form */
-
 .login {
     width: 300px;
     margin: 100px auto;
-
-
-
-
 }
 .login input {
     margin-bottom: 10px;
-
-
-
 }
 
 .login .form-control {
@@ -35,14 +18,17 @@ body {
 }
 
 .login .btn {
-
     background-color: #008dde;
 }
 
 /* end login form */
 
-
 form h4 {
     text-align: center;
     color: #bf3636;
+}
+
+.element {
+    text-align: inherit;
+}
 }

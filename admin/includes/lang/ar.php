@@ -4,7 +4,6 @@ function lang($phrase) {
         // dashboard phrases
         "categories" => "الأقسام",
         "home" => "الرئيسية",
-        "link" => "رابط",
         "dropdown" => "قائمة منسدلة",
         "edit_profile" => "تعديل الملف الشخصي",
         "settings" => "الإعدادات",
