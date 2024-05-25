@@ -7,7 +7,8 @@ if (isset($_SESSION["USERNAME"])) {
     exit();
 }
 
-$nonavpar = "";
+$noNavbar = "";  // التصحيح هنا بتغيير المتغير إلى camelCase
+$pageTitle = "Login";
 
 // تضمين ملفات التهيئة
 include "init.php";
@@ -16,11 +17,11 @@ include "init.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["user"];
     $password = $_POST["pass"];
-    $hashedpass = sha1($password);
+    $hashedPass = sha1($password);
 
     // التحقق من وجود المستخدم في قاعدة البيانات
-    $stmt = $con->prepare("SELECT username, password FROM users WHERE username = ? AND password = ? AND Groupid = 1");
-    $stmt->execute([$username, $hashedpass]);
+    $stmt = $con->prepare("SELECT username, password FROM users WHERE username = ? AND password = ? AND groupid = 1");
+    $stmt->execute([$username, $hashedPass]);
 
     // جلب النتيجة
     $row = $stmt->fetch();
@@ -39,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <form class="login" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-    <h4>Admin login</h4> 
-    <input class="form-control form-control-lg" type="text" name="user" placeholder="username" autocomplete="off"/>
-    <input class="form-control form-control-lg" type="password" name="pass" placeholder="password" autocomplete="new-password"/>
-    <input class="btn btn-primary btn-block" type="submit" value="login"/>
+    <h4>Admin Login</h4>
+    <input class="form-control form-control-lg" type="text" name="user" placeholder="Username" autocomplete="off" required />
+    <input class="form-control form-control-lg" type="password" name="pass" placeholder="Password" autocomplete="new-password" required />
+    <input class="btn btn-primary btn-block" type="submit" value="Login" />
 </form>
 
 <?php

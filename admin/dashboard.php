@@ -5,7 +5,7 @@ if (isset($_SESSION["USERNAME"])) {
     echo "Welcome " . $_SESSION["USERNAME"];
     
     // محتوى لوحة التحكم هنا
-
+    $pageTitle ="dashboard";
     include $tpl . "footer.php";
 } else {
     echo "You are not authorized to view this page.";

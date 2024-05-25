@@ -31,7 +31,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#"><?php echo lang('edit_profile'); ?></a></li>
             <li><a class="dropdown-item" href="#"><?php echo lang('settings'); ?></a></li>
-            <li><a class="dropdown-item" href="#"><?php echo lang('logout'); ?></a></li>
+            <li><a class="dropdown-item" href="logout.php"><?php echo lang('logout'); ?></a></li>
           </ul>
         </li>
       </ul>
