@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#"><?php echo lang('home'); ?></a>
@@ -8,19 +7,19 @@
     <div class="collapse navbar-collapse" id="app-nav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <a class="nav-link" href="#"><?php echo lang('categories'); ?></a>
+          <a class="nav-link" href="#"><?php echo lang('categories'); ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo lang('ITEMS'); ?></a>
+          <a class="nav-link" href="#"><?php echo lang('items'); ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo lang('MEMBERS'); ?></a>
+          <a class="nav-link" href="#"><?php echo lang('members'); ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo lang('STATISTICS'); ?></a>
+          <a class="nav-link" href="#"><?php echo lang('statistics'); ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo lang('LOGS'); ?></a>
+          <a class="nav-link" href="#"><?php echo lang('logs'); ?></a>
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -30,7 +29,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#"><?php echo lang('edit_profile'); ?></a></li>
-            <li><a class="dropdown-item" href="#"><?php echo lang('settings'); ?></a></li>
+            <li><a class="dropdown-item" href="members.php?do=edit&USERID=<?php echo $_SESSION['ID']; ?>"><?php echo lang('settings'); ?></a></li>
             <li><a class="dropdown-item" href="logout.php"><?php echo lang('logout'); ?></a></li>
           </ul>
         </li>
