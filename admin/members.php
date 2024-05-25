@@ -13,9 +13,11 @@ if (isset($_SESSION["USERNAME"])) {
     if ($do == "manage") {
         // Manage page
         echo "Welcome to the manage page.";
-    } elseif ($do == "edit") {
-        // Edit page
-        if (isset($_GET["USERID"])) {
+    } elseif ($do == "edit") { // Edit page
+
+
+        if (isset($_GET["USERID"])&& is_numberic($_GET["userid"])) {
+           // echo intval($_GET["userid"])
             $userid = intval($_GET["USERID"]); // تأكد من تحويل ID إلى عدد صحيح لتجنب الثغرات الأمنية
             ?>
             <h1 class="text-center">Edit Member</h1>

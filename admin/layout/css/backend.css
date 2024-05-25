@@ -66,3 +66,15 @@ form h4 {
 .navbar-inverse .navbar-nav > .open > a:hover {
     background-color: #52185F;
 }
+
+
+/*start members page */
+h1 {
+    font-size: 55px;
+    margin: 40px 0;
+    font-weight: bold;
+    color: darkviolet;
+}
+
+
+/*end members page */
