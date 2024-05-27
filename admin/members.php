@@ -16,9 +16,9 @@ if (isset($_SESSION["USERNAME"])) {
     } elseif ($do == "edit") { // Edit page
 
 
-        if (isset($_GET["USERID"])&& is_numberic($_GET["userid"])) {
+        if (isset($_GET["userid"])&&($_GET["userid"])) {
            // echo intval($_GET["userid"])
-            $userid = intval($_GET["USERID"]); // تأكد من تحويل ID إلى عدد صحيح لتجنب الثغرات الأمنية
+            $userid = intval($_GET["userid"]); // تأكد من تحويل ID إلى عدد صحيح لتجنب الثغرات الأمنية
             ?>
             <h1 class="text-center">Edit Member</h1>
             <div class="container">

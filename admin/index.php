@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashedPass = sha1($password);
 
     // التحقق من وجود المستخدم في قاعدة البيانات
-    $stmt = $con->prepare("SELECT UserID, username, password FROM users WHERE username = ? AND password = ? AND groupid = 1 LIMIT 1");
+    $stmt = $con->prepare("SELECT userid, username, password FROM users WHERE username = ? AND password = ? AND groupid = 1 LIMIT 1");
     $stmt->execute([$username, $hashedPass]);
 
     // جلب النتيجة
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // إذا كانت النتيجة تحتوي على سجل واحد على الأقل، سجل الدخول
     if ($count > 0) {
         $_SESSION["USERNAME"] = $username;  // تسجيل اسم المستخدم في الجلسة
-        $_SESSION["ID"] = $row["UserID"];  // تسجيل معرف المستخدم في الجلسة
+        $_SESSION["ID"] = $row["userid"];  // تسجيل معرف المستخدم في الجلسة
         echo "Welcome " . $username;
         header("refresh:3;url=dashboard.php");
         exit();
