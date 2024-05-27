@@ -14,11 +14,8 @@ if (isset($_SESSION["USERNAME"])) {
         // Manage page
         echo "Welcome to the manage page.";
     } elseif ($do == "edit") { // Edit page
-
-
-        if (isset($_GET["userid"])&&($_GET["userid"])) {
-           // echo intval($_GET["userid"])
-            $userid = intval($_GET["userid"]); // تأكد من تحويل ID إلى عدد صحيح لتجنب الثغرات الأمنية
+        if (isset($_GET["USERID"])&&($_GET["USERID"])) {
+            $userid = $_SESSION["ID"]; // Use the session value instead of $_GET["userid"]
             ?>
             <h1 class="text-center">Edit Member</h1>
             <div class="container">
@@ -66,8 +63,6 @@ if (isset($_SESSION["USERNAME"])) {
                 </form>
             </div>
             <?php
-        } else {
-            echo "No User ID provided.";
         }
     }
 

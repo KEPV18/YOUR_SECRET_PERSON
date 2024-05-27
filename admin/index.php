@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["USERNAME"] = $username;  // تسجيل اسم المستخدم في الجلسة
         $_SESSION["ID"] = $row["userid"];  // تسجيل معرف المستخدم في الجلسة
         echo "Welcome " . $username;
+
         header("refresh:3;url=dashboard.php");
         exit();
     } else {

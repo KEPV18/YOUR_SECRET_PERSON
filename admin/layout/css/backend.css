@@ -1,6 +1,6 @@
 /* القواعد العامة للصفحة */
 body {
-    background-color: #4C4E4C;
+    background-color: #ffffff;
     font-size: 16px;
 }
 
@@ -60,24 +60,28 @@ form h4 {
 .dropdown-menu > li > a {
     color: white;
     padding: 10px 15px;
-    background-color: #1B7678;
+    background-color: #ed5082;
 }
 
-.navbar-inverse .navbar-nav > .open > a:focus,
-.navbar-inverse .navbar-nav > .open > a:hover,
-.dropdown-item {
-    background-color: #52185F;
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover{
+    background-color: #d18a8a;
+    color: #eaeaea;
 }
-
 
 /*start members page */
 h1 {
-    font-size: 55px;
-    margin: 40px 0;
-    font-weight: bold;
-    color: darkviolet;
+    font-size: 55px !important;
+    margin: 40px 0 !important;
+    font-weight: bold !important;
+    color: #c53161 !important;
 }
 
+.bg-dark{
+    background-color: rgb(36 110 185) !important;
+
+
+}
 
 
 /*end members page */
