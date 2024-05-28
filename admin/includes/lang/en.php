@@ -9,7 +9,7 @@ function lang($phrase) {
         
         "dropdown"     => "Options",
         "edit_profile" => "Update Profile",
-        "settings"     => "Preferences",
+        "settings"     => "settings",
         "logout"       => "Sign Out",
         "ITEMS"        => "Items",
         "MEMBERS"      => "Members",

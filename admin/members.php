@@ -14,7 +14,7 @@ if (isset($_SESSION["USERNAME"])) {
     } elseif ($do == "edit") { // Edit page
 
         // Check if user id is present in the URL and convert it to an integer
-        $userid = (isset($_GET["userid"]) && is_numeric($_GET["userid"])) ? intval($_GET["userid"]) : 0;
+        $userid = (isset($_GET["USERID"]) && is_numeric($_GET["USERID"])) ? intval($_GET["USERID"]) : 0;
 
         // Use session value if available, otherwise default value
         $session_userid = $_SESSION["ID"] ?? null;
@@ -34,36 +34,36 @@ if (isset($_SESSION["USERNAME"])) {
                 <div class="container">
                     <form action="?do=update" method="POST" class="row g-3">
                         <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
+                        <!-- Full name field -->
+                        <div class="col-md-6">
+                            <label for="fullname" class="form-label">Full Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" name="fullname" class="form-control" value="<?php echo $row["FULLNAME"]; ?>" id="fullname" />
+                            </div>
+                        </div>
                         <!-- Username field -->
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="username" class="form-label">Username</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="username" class="form-control" id="username" value="<?php echo $row["username"]; ?>" autocomplete="off" />
+                            <div class="col-sm-6">
+                                <input type="text" name="username" class="form-control" id="username"  value="<?php echo $row["username"]; ?>" autocomplete="off" />
+                            </div>
+                        </div>
+                        <!-- Email field -->
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <div class="col-sm-6">
+                                <input type="email" name="email" class="form-control" value="<?php echo $row["email"]; ?>" id="email" />
                             </div>
                         </div>
                         <!-- Password field -->
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="password" class="form-label">Password</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-6">
                                 <input type="hidden" name="oldpassword" value="<?php echo $row["password"]; ?>"/>
                                 <input type="password" name="newpassword" class="form-control" id="password" autocomplete="new-password" />
                             </div>
                         </div>
-                        <!-- Email field -->
-                        <div class="col-md-12">
-                            <label for="email" class="form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" name="email" class="form-control" value="<?php echo $row["email"]; ?>" id="email" />
-                            </div>
-                        </div>
-                        <!-- Full name field -->
-                        <div class="col-md-12">
-                            <label for="fullname" class="form-label">Full Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="fullname" class="form-control" value="<?php echo $row["fullname"]; ?>" id="fullname" />
-                            </div>
-                        </div>
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-sm-offset-2 col-sm-15">
                           <button type="submit" class="btn btn-outline-success btn-lg">Save</button>
                         </div>
                     </form>
@@ -74,6 +74,7 @@ if (isset($_SESSION["USERNAME"])) {
             }
         } else {
             echo "You are not authorized to edit this user.";
+            print_r($_SESSION);
         }
     } elseif ($do == "update") { // Update page
         echo "<h1 class='text-center'>Update Member</h1>";
@@ -92,7 +93,7 @@ if (isset($_SESSION["USERNAME"])) {
 
                 if (empty($user)) {
                     $formerrors[] = "Username can not be empty";
-                } elseif (strlen($user) <= 5) {
+                } elseif (strlen($user) <= 3) {
                     $formerrors[] = "Username must be more than 4 characters";
                 }
 
