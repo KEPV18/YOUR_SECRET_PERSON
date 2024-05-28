@@ -85,13 +85,33 @@ if (isset($_SESSION["USERNAME"])) {
             $name   = $_POST['fullname'];
 
             // Password handling
-            $pass = '';
-            if (empty($_POST["newpassword"])) {
-                $pass = $_POST["oldpassword"];
-            } else {
-                $pass = sha1($_POST["newpassword"]);
-            }
+            $pass = empty($_POST["newpassword"]) ? $_POST["oldpassword"] : sha1($_POST["newpassword"]);
 
+            // validate the form
+                $formerrors = array();
+
+                if (empty($user)) {
+                    $formerrors[] = "Username can not be empty";
+                } elseif (strlen($user) <= 5) {
+                    $formerrors[] = "Username must be more than 4 characters";
+                }
+
+                if (empty($name)) {
+                    $formerrors[] = "Full name can not be empty";
+                } elseif (strlen($name) <= 1) {
+                    $formerrors[] = "Full name must consist of at least two words";
+                }
+
+                if (empty($email)) {
+                    $formerrors[] = "Email can not be empty";
+                }
+
+                foreach ($formerrors as $error) {
+                    echo $error . '<br/>';
+                }
+
+
+            
             // Update the database with this info
             $stmt = $con->prepare("UPDATE users SET username=?, email=?, fullname=?, password=? WHERE userid=?");
             $stmt->execute([$user, $email, $name, $pass, $id]);
