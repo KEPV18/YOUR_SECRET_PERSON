@@ -13,53 +13,54 @@ if (isset($_SESSION["USERNAME"])) {
         echo "Welcome to the manage page.";
     } elseif ($do == "edit") { // Edit page
 
-        // التحقق من وجود معرف المستخدم في الرابط وتحويله إلى رقم صحيح
+        // Check if user id is present in the URL and convert it to an integer
         $userid = (isset($_GET["userid"]) && is_numeric($_GET["userid"])) ? intval($_GET["userid"]) : 0;
 
-        // استخدام قيمة الجلسة إذا كانت متاحة وإلا قيمة افتراضية
+        // Use session value if available, otherwise default value
         $session_userid = $_SESSION["ID"] ?? null;
 
-        // التحقق من أن المستخدم لديه الصلاحية لتعديل هذا المستخدم
+        // Check if the user has permission to edit this user
         if ($userid == $session_userid) {
-            // استعلام SQL لاسترداد معلومات المستخدم
+            // SQL query to retrieve user information
             $stmt = $con->prepare("SELECT * FROM users WHERE userid = ? LIMIT 1");
             $stmt->execute([$userid]);
             $row = $stmt->fetch();
             $count = $stmt->rowCount();
 
             if ($count > 0) {
-?>
-                <!-- نموذج تحرير المستخدم -->
+                ?>
+                <!-- Edit user form -->
                 <h1 class="text-center">Edit Member</h1>
                 <div class="container">
-                    <form action="update.php" method="POST" class="row g-3">
+                    <form action="?do=update" method="POST" class="row g-3">
                         <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-                        <!-- حقل اسم المستخدم -->
+                        <!-- Username field -->
                         <div class="col-md-12">
                             <label for="username" class="form-label">Username</label>
                             <div class="col-sm-10">
-                                <input type="text" name="username" class="form-control" id="username" value="<?php echo $row["username"] ?>"    autocomplete="off" />
+                                <input type="text" name="username" class="form-control" id="username" value="<?php echo $row["username"]; ?>" autocomplete="off" />
                             </div>
                         </div>
-                        <!-- حقل كلمة المرور -->
+                        <!-- Password field -->
                         <div class="col-md-12">
                             <label for="password" class="form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="password" name="password" autocomplete="new-password" class="form-control" id="password" placeholder="Leave blank if you don't want to change" />
+                                <input type="hidden" name="oldpassword" value="<?php echo $row["password"]; ?>"/>
+                                <input type="password" name="newpassword" class="form-control" id="password" autocomplete="new-password" />
                             </div>
                         </div>
-                        <!-- حقل البريد الإلكتروني -->
+                        <!-- Email field -->
                         <div class="col-md-12">
                             <label for="email" class="form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" name="email" class="form-control" value="<?php echo $row["email"] ?>" id="email" />
+                                <input type="email" name="email" class="form-control" value="<?php echo $row["email"]; ?>" id="email" />
                             </div>
                         </div>
-                        <!-- حقل الاسم الكامل -->
+                        <!-- Full name field -->
                         <div class="col-md-12">
                             <label for="fullname" class="form-label">Full Name</label>
                             <div class="col-sm-10">
-                                <input type="text" name="fullname" class="form-control"value="<?php echo $row["fullname"] ?>" id="fullname" />
+                                <input type="text" name="fullname" class="form-control" value="<?php echo $row["fullname"]; ?>" id="fullname" />
                             </div>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
@@ -67,13 +68,39 @@ if (isset($_SESSION["USERNAME"])) {
                         </div>
                     </form>
                 </div>
-<?php
+                <?php
             } else {
                 echo "There is no such id.";
             }
         } else {
             echo "You are not authorized to edit this user.";
         }
+    } elseif ($do == "update") { // Update page
+        echo "<h1 class='text-center'>Update Member</h1>";
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Get variables from the form
+            $id     = $_POST['userid'];
+            $user   = $_POST['username'];
+            $email  = $_POST['email'];
+            $name   = $_POST['fullname'];
+
+            // Password handling
+            $pass = '';
+            if (empty($_POST["newpassword"])) {
+                $pass = $_POST["oldpassword"];
+            } else {
+                $pass = sha1($_POST["newpassword"]);
+            }
+
+            // Update the database with this info
+            $stmt = $con->prepare("UPDATE users SET username=?, email=?, fullname=?, password=? WHERE userid=?");
+            $stmt->execute([$user, $email, $name, $pass, $id]);
+        
+            // Echo success message
+            echo $stmt->rowCount() . ' record updated';
+        }
+    } else {
+        echo "You cannot browse this page directly.";
     }
 
     // Content of the control panel here
