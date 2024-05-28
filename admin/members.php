@@ -64,7 +64,7 @@ if (isset($_SESSION["USERNAME"])) {
                             </div>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                          <button type="submit" class="btn btn-outline-success btn-lg">Save</button>
                         </div>
                     </form>
                 </div>
