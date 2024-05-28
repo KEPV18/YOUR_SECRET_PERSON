@@ -28,8 +28,8 @@
             <?php echo $_SESSION["USERNAME"]; ?>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><?php echo lang('edit_profile'); ?></a></li>
-            <li><a class="dropdown-item" href="members.php?do=edit&USERID=<?php echo $_SESSION['ID']; ?>"><?php echo lang('settings'); ?></a></li>
+            <li><a class="dropdown-item" href="members.php?do=edit&USERID=<?php echo $_SESSION['ID']; ?>"><?php echo lang('edit_profile'); ?></a></li>
+            <li><a class="dropdown-item" href="#"><?php echo lang('settings'); ?></a></li>
             <li><a class="dropdown-item" href="logout.php"><?php echo lang('logout'); ?></a></li>
           </ul>
         </li>
